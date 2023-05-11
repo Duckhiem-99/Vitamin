@@ -1,0 +1,54 @@
+﻿@model TTN_Vitamin.Models.TaiKhoan
+@{
+    ViewBag.Title = "Đăng Nhập";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewBag.Title - Vitamin House</title>
+    <link href="~/Content/login.css" rel="stylesheet" />
+</head>
+<body>
+    <span>
+        <h1 style="font-style:italic;color:darkblue;margin-left:15px;text-align:center">Vui lòng đăng nhập để làm việc với tư cách Người Quản Trị</h1>
+        <span style="align-content:center;text-align:center;margin-left:150px">
+            <img src="~/AnhSP/logo.png" width="600px" height="281px" />
+        </span>
+    </span>
+    <div class="login" style="border-style:solid;width:400px;height:276px;:center;text-align:center;margin-left:750px;margin-top:-285px">
+        <h3 style="text-align:center;font-size:xx-large;margin-top:5px;color:red">Đăng nhập</h3>
+        @using (Html.BeginForm("DangNhapADMIN", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group" style="margin-left:0px">
+                <strong style="color:red ">  @Html.LabelFor(m => m.email)</strong>
+                @Html.TextBoxFor(m => m.email, "", new { @class = "form-control", @placeholder = "Nhập email đăng nhập", @required = "Không được để trống" })
+
+            </div>
+            <div class="form-group" style="margin-left:0px;;margin-top:30px">
+                <strong style="color:red;margin-left:-27px;margin-top:30px"> @Html.LabelFor(m => m.matKhau)</strong>
+                @Html.PasswordFor(m => m.matKhau, new { @class = "form-control", @placeholder = "Mật khẩu", @required = "Không được để trống" })
+            </div>
+            <div style="text-align:center; clear:both;margin-top:30px">
+                <input class="btn btn-primary" type="submit" name="submit" value="Đăng Nhập" />
+            </div>
+        }
+        @if (ViewBag.error != null)
+        {
+            <br />
+            <div class="alert alert-danger" role="alert" style="color:red;margin-left:0px">@ViewBag.error</div>
+        }
+
+    </div>
+
+</body>
+</html>
+
+
+
+

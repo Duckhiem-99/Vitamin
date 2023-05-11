@@ -1,0 +1,47 @@
+﻿@model TTN_Vitamin.Models.DanhMucCon
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Xóa Danh Mục Con</h2>
+
+<h3>Bạn có chắc chắc muốn xóa???</h3>
+<div>
+    <h4>DanhMucCon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMuc.tenDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.tenDM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenDMC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenDMC)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    }
+</div>
+@if (ViewBag.Error != null)
+{
+    <br />
+    <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+}   

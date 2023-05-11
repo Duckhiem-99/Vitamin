@@ -1,0 +1,55 @@
+﻿@model TTN_Vitamin.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông Tin chi</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.hoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.hoTen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.anhBlog)
+        </dt>
+
+        <dd>
+            @{ 
+                string ImagePath = "~/AnhSP/VTM/" + Model.anhBlog;
+            }
+            <img src="@Url.Content(ImagePath)" width="300" class="img-thumbnail" />
+            <br/>
+            @Html.DisplayFor(model => model.anhBlog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.maBlog.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

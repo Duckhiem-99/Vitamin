@@ -1,0 +1,112 @@
+﻿@model List<TTN_Vitamin.Models.GioHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="row-breadcrumb" style="margin-top:30px;">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb-instro">
+            <li><a href="/"><i class="fa fa-forward" aria-hidden="true"></i>Trang chủ</a></li>
+            <li class="active">Giỏ hàng</li>
+        </ol>
+    </div>
+</section>
+<section style="margin-top:80px;">
+    <div class="container">
+        <div class="row">
+            @if (Model.Count > 0)
+            {
+                int stt = 1;
+                double total = 0;
+                <table class="table" style="margin:20px auto;">
+                    <thead>
+                        <tr>
+                            <td>STT</td>
+                            <td>Ảnh</td>
+                            <td>Sản phẩm</td>
+                            <td>Đơn giá</td>
+                            <td>Số lượng</td>
+                            <td>Thành tiền</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@(stt++)</td>
+                            <td>
+                                @{
+                                    string ImagePath = "~/AnhSP/VTM/" + item.sanpham.anhSanPham;
+                                }
+                                <img src="@Url.Content(ImagePath)" alt="" width="70" height="100" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.sanpham.tenSanPham)
+                            </td>
+                            <td>@Html.DisplayFor(model => item.sanpham.giaSanPham) VNĐ</td>
+                            <td><input type="number" min="1" max="100" id="@($"quantity-{item.sanpham.maSP.Trim()}")" value="@item.quantity" /></td>
+                            @if (item.sanpham != null)
+                            {
+                                var thanhtien = item.sanpham.giaSanPham * item.quantity;
+                                total += thanhtien;
+                                <td>@Html.DisplayFor(model => thanhtien)</td>
+                            }
+                            else
+                            {
+                                return;
+                            }
+                            <td>
+                                <button class="btn btn-success btnUpdateCart"
+                                        data-masp="@item.sanpham.maSP">
+                                    Cập nhật
+                                </button>
+                                <a href="@Url.Action("RemoveCart","GioHang",new { masp = item.sanpham.maSP })"
+                                   class="btn btn-danger" id="btnXoa">Xóa</a>
+                            </td>
+
+                        </tr>
+                        }
+                        <tr>
+                            <td colspan="6" class="text-right">Tổng tiền</td>
+                            <td>@(total.ToString("n0")) VNĐ</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a id="btnDathang" class="btn btn-primary" style="width:120px" href="@Url.Action("PayMent","GioHang")">Đặt hàng</a>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">Giỏ hàng trống </div>
+            }
+        </div>
+    </div>
+</section>
+@if (ViewBag.error != null)
+{
+    <br />
+    <div class="alert alert-danger" role="alert" style="color:red">@ViewBag.error</div>
+}
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".btnUpdateCart").click(function (event) {
+                event.preventDefault();
+                var masp = $(this).attr("data-masp");
+                var quantity = $("#quantity-"+masp).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/GioHang/UpdateCart",
+                    data: {
+                        masp: masp,
+                        quantity: quantity
+                    },
+                    success: function (result) {
+                        window.location.href = "/GioHang";
+                        
+                    }
+                });
+            });
+        });
+    </script>
+}

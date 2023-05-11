@@ -1,0 +1,95 @@
+﻿@model TTN_Vitamin.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Xóa sản phẩm</h2>
+
+<h3>Bạn có chắc muốn xóa???</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMucCon.maDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMucCon.maDM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMucCon1.maDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMucCon1.maDM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thuongHieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thuongHieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giaSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giaSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moTaSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moTaSanPham)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    }
+</div>
+@if (ViewBag.Error != null)
+{
+    <br />
+    <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+}   

@@ -1,0 +1,62 @@
+﻿@model PagedList.IPagedList<TTN_Vitamin.Models.SanPham>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@using TTN_Vitamin.Models
+@{
+    ViewBag.Title = "VitaminHouse";
+    VitaminHouseDB db = new VitaminHouseDB();
+}
+<section id="show">
+        <div class="container">
+            <div id="sliderFrame">
+                <div id="slider">
+                    <img src="~/AnhSP/VTM/blog1.jpg" alt="Welcome to vitaminhouse.com" />
+                    <img src="~/AnhSP/VTM/blog2.jpg" alt="" />
+                    <img src="~/AnhSP/VTM/Bánh Bông Lan Lester Cake Chocolate Chip Rocher 450g.jpg" alt="" />
+                    <img src="~/AnhSP/VTM/Bánh Cuộn Ngàn Lớp Vị Cà Phê.jpg" alt="#htmlcaption" />
+                    <img src="~/AnhSP/VTM/Bánh Ngũ Cốc CHEERIOS.jpg" />
+                </div>
+            </div>
+        </div>
+</section>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div style="background-color:#f5f5f5; position:relative;text-align:center;">
+    <h2 style="font-variant-caps:normal; color:darkslategray;padding-top:5px;padding-bottom:3px;">Danh sách sản phẩm</h2>
+    <div style="position:absolute; right:90px; bottom:10px; width:100px; height:20px; font-size:16px;text-align:center">
+        @Html.DropDownList("sortOder",null,"--Sắp xếp theo--", new { @style = "background-color: white; border: 1px solid #b3b3b3; border-radius: 8px;", @onchange = "this.form.submit();" })
+    </div>
+</div>
+}
+<div class="row row-cols-4 row-cols-md-4 g-4 clearfix">
+        @foreach (var item in Model)
+        {
+            <div class="col col-md-3 col-sm-4 item col-xs-6 post-scroll">
+                <div class="card h-100 border-primary mb-3" id="product">
+                    <a href="@Url.Action("ChiTietSanPham", "Home", new { id = item.maSP.Trim() })">
+                        @{
+                            string ImagePath = "~/AnhSP/VTM/" + item.anhSanPham;
+
+                        }
+                        <img src="@Url.Content(ImagePath)" class="card-img-top" alt="Ảnh">
+                    </a>
+                    <div class="card-body">
+                        <a href="@Url.Action("ChiTietSanPham", "Home", new { id = item.maSP.Trim() })" class="card-title" style="font-weight:bold;">@Html.DisplayFor(model => item.tenSanPham) @Html.DisplayFor(model => item.maSP)</a>
+                        <p class="card-text" style="font-variant-caps:normal; font-style:italic; color:cadetblue;">@Html.DisplayFor(model => item.thuongHieu)</p>
+                        <p class="card-text" style="font-variant-caps:normal; font-style:italic; color:cadetblue;">@Html.DisplayFor(model => item.giaSanPham)</p>
+                    </div>
+                    <div class="card-footer" style="color:red">
+                        <p><a href="@Url.Action("AddItem", "GioHang", new { masp = item.maSP })" style="color:red"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a></p>
+                    </div>
+
+                </div>
+            </div>
+         }
+        </div>
+        <br />
+        <div class="col-md-4 offset-8">
+            Trang @(Model.PageCount<Model.PageNumber ?0:Model.PageNumber) / @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilte }))
+        </div>
+        
+

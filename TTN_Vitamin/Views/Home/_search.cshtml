@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TTN_Vitamin.Models.SanPham>
+
+<div class="col-md-7" id="abc">
+    <div class="header-search">
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            <form>
+                <div class="search-text">
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "input", @placeholder = "Tìm kiếm đồ ăn nhanh hoặc nhãn hiệu" })
+                    <button class="search-btn" type="submit" />
+                </div>
+                <div class="search-select">
+                    <select>
+                        <option value="" disabled selected>Chọn nhãn hiệu</option>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@Html.DisplayFor(model=>item.thuongHieu)">@Html.DisplayFor(model => item.thuongHieu)</option>
+
+                        }
+                    </select>
+
+                </div>
+
+            </form>
+        }
+
+    </div>
+</div>
+

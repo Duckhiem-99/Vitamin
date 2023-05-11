@@ -1,0 +1,79 @@
+﻿@model TTN_Vitamin.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông tin sản phẩm</h2>
+
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMucCon.maDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMucCon.maDM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thuongHieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thuongHieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhSanPham)
+        </dt>
+
+        <dd>
+            @{
+                string ImagePath = "~/AnhSP/VTM/" + Model.anhSanPham;
+            }
+            <img src="@Url.Content(ImagePath)" width="300" class="img-thumbnail" />
+            <br />
+            @Html.DisplayFor(model => model.anhSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giaSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giaSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moTaSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moTaSanPham)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.maSP.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

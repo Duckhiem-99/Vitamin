@@ -1,0 +1,36 @@
+﻿@model TTN_Vitamin.Models.Blog
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.tieuDe);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="row-breadcrumb" style="margin-top:15px;">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb-instro">
+            <li><a href="/"><i class="fa fa-forward" aria-hidden="true"></i>Trang chủ</a></li>
+            <li class="active" style="color:black">Blog</li>
+        </ol>
+    </div>
+</section>
+<section style="margin-top:60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5" style="margin-top:20px;">
+                <a>
+                    @{
+                        string ImagePath = "~/AnhSP/VTM/" + Model.anhBlog;
+                    }
+                    <img src="@Url.Content(ImagePath)" width="400" height="250" />
+                </a>
+            </div>
+            <div class="col-md-7">
+                <h3>@Html.DisplayFor(model => model.tieuDe)</h3>
+
+            </div>
+            <div class="col-md-8 center-block" style="margin-left:450px;">
+                <p>@Html.DisplayFor(model => model.noiDung)</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>

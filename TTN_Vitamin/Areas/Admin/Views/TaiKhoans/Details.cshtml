@@ -1,0 +1,30 @@
+﻿@model TTN_Vitamin.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    <h4>TaiKhoan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.matKhau)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.quyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quyen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.email.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

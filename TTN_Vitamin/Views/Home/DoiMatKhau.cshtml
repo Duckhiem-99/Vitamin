@@ -1,0 +1,82 @@
+﻿@model TTN_Vitamin.Models.NguoiDung
+@{
+    ViewBag.Title = "Đổi Mật Khẩu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="row-breadcrumb" style="margin-top:15px;">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb-instro">
+            <li><a href="/"><i class="fa fa-forward" aria-hidden="true"></i>Trang chủ</a></li>
+            <li class="active" style="color:#fff">Đổi mật khẩu</li>
+        </ol>
+    </div>
+</section>
+<section class="block-terms">
+    <div class="container">
+        <div class="row">
+            <div class="well form-popup form">
+                <div class="text-thanks">
+                    Cảm ơn quý khách đã quan tâm đến VitaminHouse.com.vn<br>
+                </div>
+            </div>
+            <div>
+                <h4 class="titlemain">Đổi mật khẩu</h4>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="has-error">
+                        <div class="help-block"></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-6">
+                            <h4 class="title">Thông tin cá nhân</h4>
+                            <div class="form-group">
+                                <div>@Html.DisplayName("Họ Tên:")</div>
+                                <div class="col-md-10"style="margin-left:-15px">
+                                    @Session["hoTen"]
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="clear:left;float:left">@Html.DisplayName("Email/Tên Đăng Nhập:")</div>
+                                <div class="col-md-10" style="margin-left:-15px">
+                                    @Session["Email"];
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="clear:left;float:left">@Html.DisplayName("Mật Khẩu Cũ:")</div>
+                                <div class="col-md-10">
+                                    @Session["matKhau"];
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="float:left;">@Html.DisplayName("Mật Khẩu Mới:")</div>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.matKhau, new { htmlAttributes = new { @class = "form-control the-nhap" } })
+                                    @Html.ValidationMessageFor(model => model.matKhau, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <div style="margin:20px 0;">
+                            Tôi đồng ý với <a target="blank" href="/dieu-khoan-su-dung/">Chính sách &amp; Điều khoản sử dụng</a>
+                        </div>
+                        <input class="readall" type="submit" name="submit" value="Đổi mật khẩu" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.error != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert" style="color:red">@ViewBag.error</div>
+    }
+    @if (ViewBag.thongbao != null)
+    {
+        <br />
+        <div class="alert alert-success" role="alert" style="color:red">@ViewBag.thongbao</div>
+    }
+</section>
+

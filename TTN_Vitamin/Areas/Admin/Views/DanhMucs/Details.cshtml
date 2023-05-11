@@ -1,0 +1,27 @@
+﻿@model TTN_Vitamin.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    <h4>DanhMuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenDM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.maDM.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

@@ -1,0 +1,34 @@
+﻿@model TTN_Vitamin.Models.GopY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    <h4>GopY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDung.hoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.hoTen)
+        </dd>
+ 
+        <dt>
+            @Html.DisplayNameFor(model => model.noiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.noiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.maGopY.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

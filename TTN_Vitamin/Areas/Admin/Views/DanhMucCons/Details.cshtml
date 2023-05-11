@@ -1,0 +1,34 @@
+﻿@model TTN_Vitamin.Models.DanhMucCon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    <h4>DanhMucCon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMuc.tenDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.tenDM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tenDMC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenDMC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.maDMC.Trim() }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

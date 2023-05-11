@@ -1,0 +1,62 @@
+﻿@model TTN_Vitamin.Models.Blog
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Xóa Blog</h2>
+
+<h3>Bạn có chắc chắn muốn xóa ???</h3>
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVien.hoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVien.hoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhBlog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhBlog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noiDung)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    }
+</div>
+@if(ViewBag.Error!= null)
+{
+    <br/>
+    <div class="alert alert-danger"role="alert">@ViewBag.Error</div>
+}

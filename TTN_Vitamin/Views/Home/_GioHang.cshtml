@@ -1,0 +1,12 @@
+﻿@model List<TTN_Vitamin.Models.GioHang>
+
+<div class="giohang">
+    <a href="@Url.Action("Index","GioHang")">
+        <span class="icon-cart">
+            <span><i class="fas fa-cart-plus fa-2x"></i></span>
+        </span>
+        <span id="number-cart">
+            @Model.Count
+        </span>
+    </a>
+</div>
