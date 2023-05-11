@@ -7,7 +7,7 @@ using TTN_Vitamin.Models;
 
 namespace TTN_Vitamin.Controllers
 {
-    public class GioHangController : Controller
+    public class GioHangController : Controller 
     {
         VitaminHouseDB db = new VitaminHouseDB();
         public static string giohangsession = "giohangsession";
