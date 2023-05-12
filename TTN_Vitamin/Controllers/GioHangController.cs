@@ -13,7 +13,7 @@ namespace TTN_Vitamin.Controllers
         public static string giohangsession = "giohangsession";
         public ActionResult Index()
         {
-            var gh = Session[giohangsession];
+            var gh = Session[giohangsession]; 
             var list = new List<GioHang>();
             if (gh != null)
             {

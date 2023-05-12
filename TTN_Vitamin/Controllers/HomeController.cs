@@ -14,6 +14,7 @@ namespace TTN_Vitamin.Controllers
         VitaminHouseDB db = new VitaminHouseDB();
         public ActionResult Index(string id, string sortOder, string searchString, string currentFilter, int? page)
         {
+			//test commint sourcetree
             List<SanPham> sanPhams = db.SanPhams.ToList();
             List<string> ListSort = new List<string> { "Tên từ Z-A","Giá từ thấp đến cao","Giá từ cao xuống thấp"};
             ViewBag.sortOder = new SelectList(ListSort);
