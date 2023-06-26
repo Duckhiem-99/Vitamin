@@ -15,7 +15,7 @@ namespace TTN_Vitamin.Areas.Admin.Controllers
     {
         private VitaminHouseDB db = new VitaminHouseDB();
 
-        // GET: Admin/Blogs_test
+        // GET: Admin/Blogs
         public ActionResult Index()
         {
             var blogs = db.Blogs.Include(b => b.NhanVien).Include(b => b.NhanVien1).Include(b => b.NhanVien2);

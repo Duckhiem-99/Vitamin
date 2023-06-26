@@ -34,6 +34,5 @@
         public virtual SanPham SanPham { get; set; }
 
         public virtual SanPham SanPham1 { get; set; }
-		//khiem dep trai
     }
 }
