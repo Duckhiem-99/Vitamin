@@ -62,5 +62,6 @@
         public virtual DanhMucCon DanhMucCon { get; set; }
 
         public virtual DanhMucCon DanhMucCon1 { get; set; }
+		//aaaaaaaaa
     }
 }
