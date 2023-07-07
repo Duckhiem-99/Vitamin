@@ -27,6 +27,5 @@
         [StringLength(100)]
         [DisplayName("Họ Tên")]
         public string hoTenDT { get; set; }
-        //bbbbbbbbbbb
     }
 }
