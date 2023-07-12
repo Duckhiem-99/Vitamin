@@ -60,8 +60,10 @@
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs1 { get; set; }
 
         public virtual DanhMucCon DanhMucCon { get; set; }
+		//1111111111111111
 
         public virtual DanhMucCon DanhMucCon1 { get; set; }
 		//aaaaaaaaa
     }
+	
 }
