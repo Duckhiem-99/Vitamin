@@ -63,5 +63,9 @@
 
         public virtual DanhMucCon DanhMucCon1 { get; set; }
     }
+<<<<<<< HEAD
 	//test fork 772023
+=======
+	//test fork 772023 khiem
+>>>>>>> 9839ef16f348e393c3ce5306d1e9d96d0a7e912b
 }
