@@ -31,7 +31,7 @@
 
         [Required]
         [StringLength(500)]
-        [DisplayName("Tên sản phẩm")]
+        [DisplayName("Products")]
         public string tenSanPham { get; set; }
 
         [Required]
