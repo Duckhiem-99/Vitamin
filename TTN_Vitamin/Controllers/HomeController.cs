@@ -182,6 +182,6 @@ namespace TTN_Vitamin.Controllers
                 return RedirectToAction("DangNhap");
             }
             return View(nd);
-        }
+        }//demo
     }
 }
