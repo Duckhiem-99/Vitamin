@@ -46,6 +46,10 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhMucCon> DanhMucCons4 { get; set; }
 		//edit danhmuc
-        //test
+<<<<<<< HEAD
+        //test khiem
+=======
+        //test 27/03/2024
+>>>>>>> fork/No.25042025
     }
 }
