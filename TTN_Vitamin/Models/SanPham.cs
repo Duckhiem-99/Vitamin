@@ -31,7 +31,7 @@
 
         [Required]
         [StringLength(500)]
-        [DisplayName("Tên sản phẩm")]
+        [DisplayName("Products")]
         public string tenSanPham { get; set; }
 
         [Required]
@@ -63,5 +63,18 @@
 
         public virtual DanhMucCon DanhMucCon1 { get; set; }
     }
+<<<<<<< HEAD
 	//test fork 772023 khiem
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+	//test fork 772023
+=======
+	//test fork 772023 khiem
+>>>>>>> 9839ef16f348e393c3ce5306d1e9d96d0a7e912b
+>>>>>>> master
 }
+//khiem
+=======
+	//test 27/03/2024
+>>>>>>> fork/No.25042025
